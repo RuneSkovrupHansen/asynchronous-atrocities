@@ -1,7 +1,7 @@
 import asyncio
 import time
 
-# sleep_coroutine will execute until await is hit, at which time the
+# sleep_coroutine will execute until 'await' is hit, at which time the
 # event loop will begin execution of the next available coroutine.
 
 # 0 started!
@@ -16,6 +16,10 @@ import time
 # 0 finished
 # 1 finished
 # 2 finished
+
+# Notice how we're blocking for the synchronous sleep, even though
+# we're in a coroutine. The coroutine is executed until control is
+# yielded through 'await'.
 
 async def sleep_coroutine(index: int):
     print(f"{index} started!")
